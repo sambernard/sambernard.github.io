@@ -45,7 +45,7 @@
 
         var loadIpsum = function(){
             $.get('http://crossorigin.me/http://loripsum.net/api/decorate/headers/allcaps/short').done(function(html){
-                var danaFied = html.replace('.', randRepeat('!')).replace('?', randRepeat('!?'));
+                var danaFied = html.replace(/\./g, randRepeat('!')).replace(/\?/g, randRepeat('!?'));
                 $('#dana-ipsum').html(danaFied);
             });
         };
