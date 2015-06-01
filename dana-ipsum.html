@@ -21,7 +21,7 @@
 
       <div class="jumbotron">
         <h1>THIS IS DANA IPSUM!!!</h1>
-        <p><button class="btn btn-lg btn-success" id="more-ipsum" href="#" role="button">GUYS CLICK HERE TO GET MORE DANA IPSUM</button></p>
+        <p><button class="btn btn-lg btn-success" id="more-ipsum" href="#" role="button">GUYS CLICK TO GET MORE DANA</button></p>
       </div>
 
       <div class="row">
@@ -38,6 +38,20 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript">
+
+        var danaStrings = [
+            "HARVEST! VACATION/SICK HOURS!",
+            "PRODUCTION MEETING HAS BEEN CANCELLED THIS MORNING",
+            "YOU GUYS ONLY LISTEN WHEN I SCREAM",
+            "LUNCH LUNCH LUNCH",
+            "HARVEST HARVEST HARVEST",
+            "LUNCH IN KITCHEN"
+        ];
+
+        var randDanaPhrase = function () {
+            return danaStrings[Math.floor(Math.random() * (danaStrings.length-1))];
+        };
+
         var randRepeat = function(str){
             var repeat = Math.floor(Math.random() * 20) + 3;
             return Array(repeat).join(str);
@@ -45,7 +59,10 @@
 
         var loadIpsum = function(){
             $.get('http://crossorigin.me/http://loripsum.net/api/decorate/headers/allcaps/short').done(function(html){
+                var startStr = '<p>' + randDanaPhrase() + '</p>';
                 var danaFied = html.replace(/\./g, randRepeat('!')).replace(/\?/g, randRepeat('!?'));
+                danaFied = danaFied.replace('<H1>', '<H1>' + randDanaPhrase() + ' ');
+                window.danaFied = danaFied;
                 $('#dana-ipsum').html(danaFied);
             });
         };
