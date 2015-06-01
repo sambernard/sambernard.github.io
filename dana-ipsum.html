@@ -38,9 +38,15 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript">
+        var randRepeat = function(str){
+            var repeat = Math.floor(Math.random() * 20) + 3;
+            return Array(repeat).join(str);
+        };
+
         var loadIpsum = function(){
-            $.get('http://crossorigin.me/http://loripsum.net/api/allcaps/short').done(function(html){
-                $('#dana-ipsum').html(html);
+            $.get('http://crossorigin.me/http://loripsum.net/api/decorate/headers/allcaps/short').done(function(html){
+                var danaFied = html.replace('.', randRepeat('!')).replace('?', randRepeat('!?'));
+                $('#dana-ipsum').html(danaFied);
             });
         };
 
