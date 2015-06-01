@@ -49,7 +49,7 @@
         ];
 
         var randDanaPhrase = function () {
-            return danaStrings[Math.floor(Math.random() * (danaStrings.length-1))];
+            return danaStrings[Math.round(Math.random() * (danaStrings.length-1))];
         };
 
         var randRepeat = function(str){
