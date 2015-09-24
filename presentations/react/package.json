@@ -1,0 +1,20 @@
+{
+  "name": "react-inheritance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "gulp-connect": "^2.2.0",
+    "babel-core": "^5.8.25"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.25",
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sam Bernard <sam@madeinhaus.com>",
+  "license": "ISC"
+}
