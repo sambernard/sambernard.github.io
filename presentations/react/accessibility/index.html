@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accessibility in React</title>
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz|Ubuntu+Mono:400,400italic,700|Dosis:400,500|Marvel:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  </head>
+  <body>
+  <textarea id="source">
+name: group
+layout: true
+
+background-image: url(./img/marvel/group.jpg)
+
+???
+---
+class: center, middle
+# Accessibility In React
+
+---
+class: middle
+
+.left-column[
+  > “The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect.”
+  >
+  > – <cite>Tim Berners-Lee, W3C Director and inventor of the World Wide Web:</cite>
+]
+
+???
+* anecdote about why I love web development
+  * reaching people
+  * removing barriers
+
+---
+class: center, middle
+
+## Accessibility is about **removing barriers** and providing **equal access**
+
+???
+
+> Web accessibility refers to the inclusive practice of **removing barriers** that prevent interaction with, or access to websites, by people with disabilities. When sites are correctly designed, developed and edited, **all users have equal access** to information and functionality.
+
+---
+background-image: url(./img/semicolons0.png)
+---
+background-image: url(./img/semicolons.png)
+---
+background-image: url(./img/hearts.png)
+---
+background-image: url(./img/hearts-error.png)
+
+???
+* We care about the tools we use, (Operator Mono), customizing themes etc
+* They should work with you, not against you
+* Accessibility empowers users to choose how they interact with your site, instead of dictating to them or restricting access
+* Providing a consistent, usable format so that all users can access content
+
+* Examples of web Accessibility
+  * Zooming font
+  * captions on video or audio
+  * Keyboards navigation
+---
+class: middle
+
+#Why Do it?
+
+???
+
+* We treat users with disabilities like IE9 users
+  * MYTH - small in number
+  * MYTH - small impact
+---
+
+class: top
+
+# 18.7% of US Adults have a disability
+--
+
+* 8.2% have difficulty lifting or grasping.
+--
+
+* 6.3% have a cognitive, mental, or emotional impairment.
+--
+
+* 3.3% have a vision impairment.
+--
+
+* 3.1% have a hearing impairment.
+
+--
+
+_US Census Report, July 2012_
+
+---
+class: middle
+
+# How Do We Implement?
+
+???
+
+* Accessibility can be incremental
+  * like progressive enhancement
+* ACCESSIBILITY IS NOT ALL OR NOTHING
+* It is not easy or simple
+
+---
+class: top
+
+# Semantic Markup
+
+???
+* Content Hierarchy
+* Semantic HTML is the use of HTML markup to reinforce the semantics, or meaning, of the information in webpages and web applications rather than merely to define its presentation or look.
+--
+* Nested Content
+* Tags: `header`, `h1`, `nav`, `cite`
+* roles: `main`, `button`, `banner`
+
+---
+class: top
+
+# WAI-ARIA
+???
+* Accessible Rich Internet Applications
+* defines a way to make Web content and Web applications more accessible to people with disabilities. It especially helps with dynamic content and advanced user interface controls developed with Ajax, HTML, JavaScript, and related technologies.
+
+--
+
+* ARIA attributes
+* `tabIndex`
+* Javascript Events
+* Outline.js
+* And many more...
+
+???
+  * Everything you click on you should be able to trigger with a keyboard
+    * navigate via tab
+    * subnav via arrows
+    * trigger via enter/space
+    * button role
+    * forms
+      * custom select boxes/checkboxes etc
+      * inputs, use required, invalid etc
+    * any time you replace a native type, provide aria controls
+  * NAV MENU
+  * accessible components tepo
+  * custom widgets
+    * tabs
+    * alerts
+    * notifications
+    * focus on element when presenting it after user interaction, use `ref`
+
+---
+background-image: url(./img/aria-tabs-1.png)
+
+---
+background-image: url(./img/aria-tabs-2.png)
+
+---
+class: middle
+
+# ARIA in React
+
+???
+* Supports aria attributes
+* Create wrapper components
+* Use available libraries
+* PropType Warnings
+* react-a11y
+* react-axe
+* Developer Tools
+
+---
+background-image: url('./img/image-component.png')
+
+???
+* wrap base elements in react components with protypes warnings
+  * button
+  * link
+  * image
+
+
+---
+background-image: url('./img/a11y.png')
+---
+class: top
+
+# My Accessibility Checklist
+
+--
+
+* Semantic Markup
+???
+* All forms, buttons, etc
+--
+
+* Navigation
+--
+
+* Custom Components
+???
+* Tablist
+* Image Crop Tool
+* Etc
+---
+class: top
+
+#Tools & Resources
+
+* react-a11y - goo.gl/qopQj6
+* react-axe - goo.gl/g13Mlf
+* Accessibility Developer Tools - goo.gl/L1Tg9I
+* davidtheclark, Reusable React ARIA Components - goo.gl/YW9FrW
+* React Widgets - goo.gl/z7QsPn
+* Outline.js - goo.gl/W6kOjH
+* Practical ARIA Examples - goo.gl/M7SxyY
+* Teach Access Tutorial - goo.gl/RjsRlY
+* W3C WAI-ARIA spec - goo.gl/gXkdtw
+???
+
+* Accessibility is important
+* It can help you reach many more users
+* You can start today without a huge investment
+
+* How Do we Implement it?
+  * Accessibility can be incremental
+    * like progressive enhancement
+  * ACCESSIBILITY IS NOT ALL OR NOTHING
+  * It is not easy or simple
+  * Design
+    * Contrast Ratios
+    * color as not the only indication
+  * In Html
+    * Semantic Markup
+      * content hierarchy
+    * Using roles
+    * it is enough for non interactive / SPA sites
+  * In React
+    * ARIA
+      * Accessible Rich Internet Applications
+      * defines a way to make Web content and Web applications more accessible to people with disabilities. It especially helps with dynamic content and advanced user interface controls developed with Ajax, HTML, JavaScript, and related technologies.
+      * Fills in the missing gaps between semantic markup and rich user controls
+    * react-aria
+    * chrome audit
+    * example of event wrapper
+    * outlines!!!
+    * reusable components
+* Example Audit?
+  * Everything you click on you should be able to trigger with a keyboard
+    * navigate via tab
+    * subnav via arrows
+    * trigger via enter/space
+    * button role
+    * wrap base elemtns in react components with protypes warnings
+      * button
+      * link
+      * image
+    * forms
+      * custom select boxes/checkboxes etc
+      * inputs, use required, invalid etc
+    * any time you replace a native type, provide aria controls
+  * NAV MENU
+  * accessible components tepo
+  * custom widgets
+    * tabs
+    * alerts
+    * notifications
+    * focus on element when presenting it after user interaction, use `ref`
+* TABS EXAMPLE
+* How can you implement accessibility?
+  * Easier for a product
+  * harder for marketing / agency stuff
+  * If you are ...
+    * a designer
+    * a developer
+    * a producer
+    * a product owner
+* Wrapup
+  * Accessibility is important
+  * be proactive in hitting low-hanging fruit
+    * semantic markup
+    * accessible menus
+    * accessible forms
+
+
+
+  </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js" /></script>
+    <script>
+      var slideshow = remark.create({
+          ratio: '16:9',
+          countIncrementalSlides: false,
+
+          highlightStyle: 'rainbow',
+          highlightSpans: true,
+          highlightLines: true,
+          // Navigation options
+          navigation: {
+            // Enable or disable navigating using scroll
+            // Default: true
+            // Alternatives: false
+            scroll: false,
+
+            // Enable or disable navigation using touch
+            // Default: true
+            // Alternatives: false
+            touch: false,
+
+            // Enable or disable navigation using click
+            // Default: false
+            // Alternatives: true
+            click: false
+          },
+      }
+
+      );
+    </script>
+  </body>
+</html>
